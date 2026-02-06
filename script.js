@@ -32,7 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteBtn.classList.add('delete-btn');
             
             deleteBtn.addEventListener('click', () => {
-                li.remove();
+                li.classList.add('removing');
+                setTimeout(() => {
+                    li.remove();
+                }, 300);
             });
 
             li.appendChild(span);
