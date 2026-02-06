@@ -2,6 +2,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const input = document.getElementById('todo-input');
     const addBtn = document.getElementById('add-btn');
     const todoList = document.getElementById('todo-list');
+    const themeToggle = document.getElementById('theme-toggle');
+
+    // Theme toggle functionality
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+    }
+
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+        const theme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+        localStorage.setItem('theme', theme);
+    });
 
     function addTodo() {
         const text = input.value.trim();

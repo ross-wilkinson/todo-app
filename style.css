@@ -1,6 +1,30 @@
+:root {
+    --bg-color: #f4f4f4;
+    --container-bg: #ffffff;
+    --text-color: #333333;
+    --input-bg: #ffffff;
+    --input-text: #000000;
+    --border-color: #dddddd;
+    --item-border-color: #eeeeee;
+    --completed-color: #888888;
+}
+
+body.dark-theme {
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --input-bg: #2d2d2d;
+    --input-text: #e0e0e0;
+    --border-color: #444444;
+    --item-border-color: #333333;
+    --completed-color: #aaaaaa;
+}
+
 body {
     font-family: sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +33,7 @@ body {
 }
 
 .container {
-    background: white;
+    background: var(--container-bg);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -18,7 +42,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #333;
+    color: var(--text-color);
 }
 
 .input-group {
@@ -29,7 +53,9 @@ h1 {
 #todo-input {
     flex-grow: 1;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg);
+    color: var(--input-text);
     border-radius: 4px 0 0 4px;
 }
 
@@ -52,8 +78,9 @@ ul {
 }
 
 li {
-    background: #fff;
-    border-bottom: 1px solid #eee;
+    background: var(--container-bg);
+    border-bottom: 1px solid var(--item-border-color);
+    color: var(--text-color);
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -80,10 +107,22 @@ li:last-child {
 
 .completed {
     text-decoration: line-through;
-    color: #888;
+    color: var(--completed-color);
 }
 
 li span {
     cursor: pointer;
     flex-grow: 1; /* Make span take up available space so it's easier to click */
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background: var(--container-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    cursor: pointer;
 }
